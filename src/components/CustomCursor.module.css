@@ -1,0 +1,52 @@
+.cursorDiamond {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background-color: var(--accent-color);
+    pointer-events: none;
+    z-index: 10000;
+    /* Rotation is handled in JS for performance/orientation mixing */
+    /* but we set initial state for no-js fallback or whatever */
+    will-change: transform;
+    transition: width 0.3s, height 0.3s, background-color 0.3s;
+}
+
+.cursorFollower {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+    z-index: 9999;
+    will-change: transform;
+    transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+    mix-blend-mode: difference;
+}
+
+/* Hover States */
+.hoverDiamond {
+    transform: scale(0);
+    /* Hide inner diamond on hover */
+    opacity: 0;
+}
+
+.hoverFollower {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(52, 152, 219, 0.2);
+    border-color: var(--accent-color);
+    mix-blend-mode: normal;
+    /* Rotation handled in JS to match movement */
+}
+
+@media (max-width: 768px) {
+
+    .cursorDiamond,
+    .cursorFollower {
+        display: none;
+    }
+}

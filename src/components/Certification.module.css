@@ -1,0 +1,132 @@
+.section {
+    padding: 150px 0;
+    display: flex;
+    justify-content: center;
+    perspective: 2000px;
+    /* Stronger perspective for the 3D scroll effect */
+}
+
+.certCard {
+    position: relative;
+    background: rgba(11, 14, 20, 0.8);
+    border-radius: 20px;
+    padding: 3px;
+    max-width: 700px;
+    width: 90%;
+    transform-style: preserve-3d;
+}
+
+.linkWrapper {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(transparent,
+            rgba(52, 152, 219, 0.3),
+            transparent 30%);
+    animation: rotate 6s linear infinite;
+    z-index: 0;
+}
+
+.content {
+    background: #0b0e14;
+    border-radius: 18px;
+    padding: 40px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    border: 1px solid rgba(52, 152, 219, 0.2);
+    box-shadow: 0 0 50px rgba(52, 152, 219, 0.05);
+    /* Softer shadow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+}
+
+/* New Image Styles */
+.imageContainer {
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.certImage {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.imageContainer:hover .certImage {
+    transform: scale(1.02);
+}
+
+.certName {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.platform {
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.credential {
+    background: rgba(52, 152, 219, 0.05);
+    padding: 15px 25px;
+    border-radius: 10px;
+    display: inline-block;
+    border: 1px solid rgba(52, 152, 219, 0.1);
+}
+
+.label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.id {
+    font-family: 'Courier New', monospace;
+    color: #fff;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .certName {
+        font-size: 1.5rem;
+    }
+
+    .section {
+        padding: 80px 0;
+    }
+}
