@@ -36,7 +36,7 @@ export const Hero = () => {
                     transition={{ duration: 0.8, ease: "backOut" }}
                 >
                     <img
-                        src="https://avatar.iran.liara.run/public/boy?username=Rituraj"
+                        src="/profile.jpg"
                         alt="Rituraj Jha"
                         className={styles.profileImage}
                     />
