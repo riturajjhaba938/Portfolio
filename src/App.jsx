@@ -21,9 +21,13 @@ function App() {
         <div id="home"><Hero /></div>
         <div id="about"><VisionaryAbout /></div>
         <div id="projects"><Gallery /></div>
-        <div id="skills">
-          <Certification />
-          <EducationSkills />
+        <div id="skills" style={{ display: 'flex', flexDirection: 'row', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <div style={{ flex: 1, minWidth: '300px' }}>
+            <Certification />
+          </div>
+          <div style={{ flex: 1, minWidth: '300px' }}>
+            <EducationSkills />
+          </div>
         </div>
         <div id="contact"><Contact /></div>
       </main>
