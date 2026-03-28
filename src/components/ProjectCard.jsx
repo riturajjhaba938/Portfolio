@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Magnetic } from './Magnetic';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaYoutube } from 'react-icons/fa';
 import styles from './Gallery.module.css';
 
 export const ProjectCard = ({ project, index }) => {
@@ -54,6 +54,13 @@ export const ProjectCard = ({ project, index }) => {
                 }}
             >
                 <div style={{ transform: "translateZ(50px)" }}>
+                    <div className={styles.imageWrapper}>
+                        <img 
+                            src={project.image} 
+                            alt={project.title} 
+                            className={styles.projectImage} 
+                        />
+                    </div>
                     <h3 className={styles.projectTitle}>{project.title}</h3>
                     <p className={styles.projectDesc}>{project.description}</p>
 
@@ -73,6 +80,13 @@ export const ProjectCard = ({ project, index }) => {
                             <Magnetic>
                                 <a href={project.demo} target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
                                     <FaExternalLinkAlt /> Live
+                                </a>
+                            </Magnetic>
+                        )}
+                        {project.video && (
+                            <Magnetic>
+                                <a href={project.video} target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
+                                    <FaYoutube /> Demo
                                 </a>
                             </Magnetic>
                         )}

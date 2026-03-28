@@ -1,5 +1,5 @@
 import { Navbar } from './components/Navbar';
-import { ParticleBackground } from './components/ParticleBackground';
+import { DottedSurface } from './components/ui/dotted-surface';
 import { Hero } from './components/Hero';
 import VisionaryAbout from './components/VisionaryAbout';
 import { Gallery } from './components/Gallery';
@@ -16,19 +16,17 @@ function App() {
     <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
       <CustomCursor />
       <Navbar />
-      <ParticleBackground />
+      <DottedSurface className="pointer-events-none fixed inset-0 -z-50" />
       <main className="container">
         <div id="home"><Hero /></div>
         <div id="about"><VisionaryAbout /></div>
-        <div id="projects"><Gallery /></div>
-        <div id="skills" style={{ display: 'flex', flexDirection: 'row', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-          <div style={{ flex: 1, minWidth: '300px' }}>
-            <Certification />
-          </div>
-          <div style={{ flex: 1, minWidth: '300px' }}>
-            <EducationSkills />
-          </div>
+        <div id="education-skills">
+          <EducationSkills />
         </div>
+        <div id="skills">
+          <Certification />
+        </div>
+        <div id="projects"><Gallery /></div>
         <div id="contact"><Contact /></div>
       </main>
     </div>

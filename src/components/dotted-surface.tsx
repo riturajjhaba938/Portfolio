@@ -10,12 +10,17 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
 	const { theme } = useTheme();
 
 	const containerRef = useRef<HTMLDivElement>(null);
+	const sceneRef = useRef<{
+		scene: THREE.Scene;
+		camera: THREE.PerspectiveCamera;
+		renderer: THREE.WebGLRenderer;
+		particles: THREE.Points[];
+		animationId: number;
+		count: number;
+	} | null>(null);
 
 	useEffect(() => {
 		if (!containerRef.current) return;
-        
-        // Ensure no ghost canvases exist in strict mode
-        containerRef.current.innerHTML = '';
 
 		const SEPARATION = 150;
 		const AMOUNTX = 40;
@@ -31,9 +36,7 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
 			1,
 			10000,
 		);
-		// Position camera to properly oversee the wave and force perspective depth
-		camera.position.set(0, 500, 1200);
-		camera.lookAt(scene.position);
+		camera.position.set(0, 355, 1220);
 
 		const renderer = new THREE.WebGLRenderer({
 			alpha: true,
@@ -41,15 +44,16 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
 		});
 		renderer.setPixelRatio(window.devicePixelRatio);
 		renderer.setSize(window.innerWidth, window.innerHeight);
-		// Clear with straight transparent Alpha
-		renderer.setClearColor(0x000000, 0);
+		renderer.setClearColor(scene.fog.color, 0);
 
 		containerRef.current.appendChild(renderer.domElement);
 
 		// Create particles
+		const particles: THREE.Points[] = [];
 		const positions: number[] = [];
 		const colors: number[] = [];
 
+		// Create geometry for all particles
 		const geometry = new THREE.BufferGeometry();
 
 		for (let ix = 0; ix < AMOUNTX; ix++) {
@@ -59,12 +63,10 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
 				const z = iy * SEPARATION - (AMOUNTY * SEPARATION) / 2;
 
 				positions.push(x, y, z);
-                
-                // Three.js Buffer colors must be between 0.0 and 1.0!
 				if (theme === 'dark') {
-					colors.push(0.8, 0.8, 0.8);
+					colors.push(200, 200, 200);
 				} else {
-					colors.push(0.1, 0.1, 0.1);
+					colors.push(0, 0, 0);
 				}
 			}
 		}
@@ -75,70 +77,59 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
 		);
 		geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
 
+		// Create material
 		const material = new THREE.PointsMaterial({
 			size: 8,
 			vertexColors: true,
 			transparent: true,
 			opacity: 0.8,
-			sizeAttenuation: true, // Requires proper camera perspective and depth
+			sizeAttenuation: true,
 		});
 
+		// Create points object
 		const points = new THREE.Points(geometry, material);
 		scene.add(points);
 
 		let count = 0;
-		let animationId: number = 0;
-		
-		let targetCameraX = 0;
-		let targetCameraY = 500;
-        let activeMouse = false;
+		let animationId: number;
 
-		const onDocumentMouseMove = (event: MouseEvent) => {
-            activeMouse = true;
-			// Normalize mouse between -1 and 1, then scale
-			const normX = (event.clientX / window.innerWidth) * 2 - 1;
-			const normY = -(event.clientY / window.innerHeight) * 2 + 1;
-			targetCameraX = normX * 800;
-			targetCameraY = 500 + normY * 300;
-		};
-
-		window.addEventListener('mousemove', onDocumentMouseMove);
-
-		// Ensure we only have one loop running
+		// Animation function
 		const animate = () => {
 			animationId = requestAnimationFrame(animate);
 
 			const positionAttribute = geometry.attributes.position;
-			const posArray = positionAttribute.array as Float32Array;
+			const positions = positionAttribute.array as Float32Array;
 
 			let i = 0;
 			for (let ix = 0; ix < AMOUNTX; ix++) {
 				for (let iy = 0; iy < AMOUNTY; iy++) {
 					const index = i * 3;
 
-					// Pronounced wave math
-					posArray[index + 1] =
+					// Animate Y position with sine waves
+					positions[index + 1] =
 						Math.sin((ix + count) * 0.3) * 50 +
 						Math.sin((iy + count) * 0.5) * 50;
+
 					i++;
 				}
 			}
 
 			positionAttribute.needsUpdate = true;
-			
-            if (activeMouse) {
-                camera.position.x += (targetCameraX - camera.position.x) * 0.05;
-                camera.position.y += (targetCameraY - camera.position.y) * 0.05;
-            } else {
-                // Idle gentle swinging if user hasn't moved mouse
-                camera.position.x = Math.sin(count * 0.1) * 200;
-            }
-            
-			camera.lookAt(scene.position);
+
+			// Update point sizes based on wave
+			const customMaterial = material as THREE.PointsMaterial & {
+				uniforms?: any;
+			};
+			if (!customMaterial.uniforms) {
+				// For dynamic size changes, we'd need a custom shader
+				// For now, keeping constant size for performance
+			}
+
 			renderer.render(scene, camera);
 			count += 0.1;
 		};
 
+		// Handle window resize
 		const handleResize = () => {
 			camera.aspect = window.innerWidth / window.innerHeight;
 			camera.updateProjectionMatrix();
@@ -147,22 +138,45 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
 
 		window.addEventListener('resize', handleResize);
 
-		// Kick off animation
+		// Start animation
 		animate();
 
+		// Store references
+		sceneRef.current = {
+			scene,
+			camera,
+			renderer,
+			particles: [points],
+			animationId,
+			count,
+		};
+
+		// Cleanup function
 		return () => {
 			window.removeEventListener('resize', handleResize);
-			window.removeEventListener('mousemove', onDocumentMouseMove);
-			cancelAnimationFrame(animationId);
-            
-            // Clean up Three.js objects tightly
-			geometry.dispose();
-			material.dispose();
-			renderer.dispose();
-			scene.clear();
 
-			if (containerRef.current) {
-				containerRef.current.innerHTML = '';
+			if (sceneRef.current) {
+				cancelAnimationFrame(sceneRef.current.animationId);
+
+				// Clean up Three.js objects
+				sceneRef.current.scene.traverse((object) => {
+					if (object instanceof THREE.Points) {
+						object.geometry.dispose();
+						if (Array.isArray(object.material)) {
+							object.material.forEach((material) => material.dispose());
+						} else {
+							object.material.dispose();
+						}
+					}
+				});
+
+				sceneRef.current.renderer.dispose();
+
+				if (containerRef.current && sceneRef.current.renderer.domElement) {
+					containerRef.current.removeChild(
+						sceneRef.current.renderer.domElement,
+					);
+				}
 			}
 		};
 	}, [theme]);
@@ -170,7 +184,7 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
 	return (
 		<div
 			ref={containerRef}
-			className={cn('pointer-events-none fixed inset-0 -z-50', className)}
+			className={cn('pointer-events-none fixed inset-0 -z-1', className)}
 			{...props}
 		/>
 	);

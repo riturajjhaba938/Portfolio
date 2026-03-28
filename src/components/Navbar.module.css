@@ -20,18 +20,38 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: #fff;
+.logoContainer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     cursor: pointer;
+    padding: 5px;
+}
+
+.logoIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoText {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.logoFirst {
+    color: #fff;
+}
+
+.logoSecond {
     background: linear-gradient(to right, #3498db, #8e44ad);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    border: 2px solid rgba(52, 152, 219, 0.5);
-    padding: 5px 10px;
-    border-radius: 8px;
 }
 
 .links {
