@@ -46,7 +46,7 @@ export const Hero = () => {
                         transition={{ duration: 0.8, ease: "backOut" }}
                     >
                         <img
-                            src="https://res.cloudinary.com/dtqsbbz5r/image/upload/v1774280049/WhatsApp_Image_2026-03-22_at_14.47.07_wpftyu.jpg"
+                            src="https://res.cloudinary.com/dtqsbbz5r/image/upload/v1774858266/sample1_loomjv.jpg"
                             alt="Rituraj Jha"
                             className={styles.profileImage}
                         />

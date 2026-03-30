@@ -1,0 +1,68 @@
+.section {
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.column {
+    flex: 1;
+    max-width: 800px;
+}
+
+.heading {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--accent-color);
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.timeline {
+    padding: 30px;
+    border-radius: 15px;
+    position: relative;
+    border-left: 2px solid var(--accent-color);
+    margin-bottom: 50px;
+}
+
+.timelineItem {
+    position: relative;
+    padding-left: 20px;
+}
+
+.dot {
+    position: absolute;
+    left: -37px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+.school {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.year {
+    display: block;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.degree {
+    color: var(--text-secondary);
+}
