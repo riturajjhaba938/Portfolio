@@ -1,71 +1,160 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useState, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaGithub, FaExternalLinkAlt, FaYoutube } from 'react-icons/fa';
 import styles from './Certification.module.css';
 
-// Importing image directly - user needs to place 'certificate.jpg' in src/assets
-// If using Vite, we can usually just refer to it, or import it if in src.
-// We'll assume the user will place it there.
-// Ideally, we import it to get the hashed URL in production.
-// import certificateImg from '../assets/certificate.jpg'; 
+const hackathons = [
+    {
+        id: 1,
+        name: "Aether",
+        event: "Dev Heat (IIIT Surat)",
+        description: "Finalist at National Level Hackathon. AI-powered 'Second Brain' for synthesizing lectures and notes.",
+        org: "IIIT Surat | Collab: GDG",
+        teamSize: "3",
+        role: "Full Stack Developer (Team Lead)",
+        techStage: "Finalist",
+        certificateImage: "https://res.cloudinary.com/dtqsbbz5r/image/upload/q_auto/f_auto/v1774872228/DevHeat_page-0001_eiaisj.jpg",
+        photoImage: "https://res.cloudinary.com/dtqsbbz5r/image/upload/f_auto,q_auto/v1774873053/IIIT_Surat_Pes_qewffp.jpg",
+        github: "#",
+        demo: "#"
+    },
+    {
+        id: 2,
+        name: "AI Study Planner",
+        event: "UnsaidTalks",
+        description: "2nd Runner-up for AI-driven academic automation.",
+        org: "UnsaidTalks",
+        teamSize: "Individual",
+        role: "Full Stack Developer",
+        techStage: "Winner",
+        certificateImage: "https://res.cloudinary.com/dtqsbbz5r/image/upload/q_auto/f_auto/v1774871798/AI-Study-Planner-Hackathon-08FB8A42D1CF_n5gncz.jpg",
+        photoImage: "https://res.cloudinary.com/dtqsbbz5r/image/upload/f_auto,q_auto/v1774689966/Ai_Study_Planner_f8mxmc.png",
+        github: "#",
+        demo: "#"
+    },
+    {
+        id: 3,
+        name: "CURA",
+        event: "HackCrux v2 (LNMIIT)",
+        description: "Clinical Intelligence Platform integration.",
+        org: "LNMIIT Jaipur | Collab: TensorFlow User Group & GDG",
+        teamSize: "4",
+        role: "Backend & AI Integration (Team Lead)",
+        techStage: "Participation",
+        certificateImage: "https://res.cloudinary.com/dtqsbbz5r/image/upload/q_auto/f_auto/v1774872228/DevHeat_page-0001_eiaisj.jpg",
+        photoImage: "https://res.cloudinary.com/dtqsbbz5r/image/upload/f_auto,q_auto/v1774873054/LNMIIT_Pres_k9tput.jpg",
+        github: "#",
+        demo: "#"
+    }
+];
 
 export const Certification = () => {
     const ref = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: ref,
-        offset: ["0 1", "1.2 1"] // Start when top enters bottom of viewport
-    });
-
-    const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
-    const opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
-    const rotateX = useTransform(scrollYProgress, [0, 1], ["45deg", "0deg"]);
-    const y = useTransform(scrollYProgress, [0, 1], [100, 0]);
+    const [selectedHackathon, setSelectedHackathon] = useState(null);
 
     return (
         <section className={styles.section} ref={ref}>
-            <motion.div
-                className={styles.certCard}
-                style={{
-                    scale,
-                    opacity,
-                    rotateX,
-                    y,
-                    transformPerspective: "1000px"
-                }}
-            >
-                <div className={styles.glow} />
-                <a
-                    href="https://www.udemy.com/certificate/UC-09cab497-38e1-4be3-a498-6994e4039d3b/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.linkWrapper}
-                >
-                    <div className={styles.content}>
-                        <h2 className={styles.title}>Certified Node</h2>
+            <div className={styles.container}>
+                <h2 className={styles.sectionTitle}>Hackathons & Achievements</h2>
+                
+                <div className={styles.grid}>
+                    {hackathons.map((item, index) => (
+                        <motion.div
+                            key={item.id}
+                            className={styles.flipCard}
+                            onClick={() => setSelectedHackathon(item)}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                        >
+                            <div className={styles.flipCardInner}>
+                                {/* Front: Certificate */}
+                                <div className={styles.flipCardFront}>
+                                    <img src={item.certificateImage} alt={`${item.name} Certificate`} className={styles.cardImage} />
+                                    <div className={styles.cardOverlay}>
+                                        <h3 className={styles.certName}>{item.name}</h3>
+                                        <p className={styles.platform}>{item.techStage}</p>
+                                    </div>
+                                    <div className={styles.clickHint}>Click to View Details</div>
+                                </div>
+                                
+                                {/* Back: Hackathon Photo */}
+                                <div className={styles.flipCardBack}>
+                                    <img src={item.photoImage} alt={`${item.name} Photo`} className={styles.cardImage} />
+                                    <div className={styles.cardOverlay}>
+                                        <h3 className={styles.certName}>Event Photo</h3>
+                                        <p className={styles.platform}>{item.event}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+            </div>
 
-                        {/* Certificate Image Container */}
-                        <div className={styles.imageContainer}>
-                            {/* Placeholder or dynamic import if file exists. 
-                             Using a relative path for now, expecting file in public or assets. 
-                             If in public, just /certificate.jpg. If src/assets, we need import. 
-                             I'll assume src/assets for better bundling, but hardcode valid ref. 
-                         */}
-                            <img
-                                src="/certificate.jpg"
-                                alt="MongoDB Developer Certificate"
-                                className={styles.certImage}
-                                onError={(e) => { e.target.style.display = 'none'; }}
-                            />
-                        </div>
+            {/* Modal Popup Overlay */}
+            <AnimatePresence>
+                {selectedHackathon && (
+                    <motion.div 
+                        className={styles.modalOverlay}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setSelectedHackathon(null)}
+                    >
+                        <motion.div 
+                            className={styles.modalContent}
+                            initial={{ scale: 0.9, y: 20, opacity: 0 }}
+                            animate={{ scale: 1, y: 0, opacity: 1 }}
+                            exit={{ scale: 0.9, y: 20, opacity: 0 }}
+                            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <div className={styles.modalHeader}>
+                                <div className={styles.modalText}>
+                                    <h3>{selectedHackathon.name} <span className={styles.techStageBadge}>{selectedHackathon.techStage}</span></h3>
+                                    <p className={styles.modalDesc}>{selectedHackathon.description}</p>
+                                    <div className={styles.modalDetailsRow}>
+                                        <span><strong>Event:</strong> {selectedHackathon.event}</span>
+                                        <span><strong>Role:</strong> {selectedHackathon.role}</span>
+                                        <span><strong>Team Size:</strong> {selectedHackathon.teamSize}</span>
+                                    </div>
+                                    <div className={styles.modalLinks}>
+                                        {selectedHackathon.github && (
+                                            <a href={selectedHackathon.github} target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
+                                                <FaGithub /> Code
+                                            </a>
+                                        )}
+                                        {selectedHackathon.demo && (
+                                            <a href={selectedHackathon.demo} target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
+                                                <FaExternalLinkAlt /> Live
+                                            </a>
+                                        )}
+                                        {selectedHackathon.video && (
+                                            <a href={selectedHackathon.video} target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
+                                                <FaYoutube /> Demo
+                                            </a>
+                                        )}
+                                    </div>
+                                </div>
+                                <button className={styles.closeBtn} onClick={() => setSelectedHackathon(null)}>&times;</button>
+                            </div>
 
-                        <h3 className={styles.certName}>MongoDB Developer Certification</h3>
-                        <p className={styles.platform}>Udemy</p>
-                        <div className={styles.credential}>
-                            <span className={styles.label}>Credential ID:</span>
-                            <code className={styles.id}>UC-09cab497-38e1-4be3-a498-6994e4039d3b</code>
-                        </div>
-                    </div>
-                </a>
-            </motion.div>
+                            <div className={styles.modalImages}>
+                                <div className={styles.modalImagePanel}>
+                                    <h4>Certificate</h4>
+                                    <img src={selectedHackathon.certificateImage} alt="Certificate" className={styles.modalImg} />
+                                </div>
+                                <div className={styles.modalImagePanel}>
+                                    <h4>Event Photo</h4>
+                                    <img src={selectedHackathon.photoImage} alt="Event" className={styles.modalImg} />
+                                </div>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     );
 };

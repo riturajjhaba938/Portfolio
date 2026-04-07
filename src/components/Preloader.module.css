@@ -1,0 +1,60 @@
+.preloaderContainer {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    background-color: var(--bg-primary, #0b0e14);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.loaderContent {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    border-top-color: var(--accent-color, #3498db);
+    border-bottom-color: var(--accent-color, #3498db);
+    opacity: 0.8;
+}
+
+.ringInner {
+    position: absolute;
+    width: 75%;
+    height: 75%;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    border-left-color: #8e44ad;
+    border-right-color: #8e44ad;
+    opacity: 0.6;
+}
+
+.logoImage {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 2;
+    box-shadow: 0 0 30px rgba(52, 152, 219, 0.5);
+}
+
+.loadingText {
+    margin-top: 50px;
+    font-size: 1.2rem;
+    color: var(--text-secondary, #a0aab2);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-weight: 500;
+}

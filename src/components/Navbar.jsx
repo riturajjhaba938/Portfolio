@@ -53,27 +53,12 @@ export const Navbar = () => {
                     }}
                     transition={{ type: "spring", stiffness: 200, damping: 10 }}
                 >
-                    <svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M50 5L93.3013 30V70L50 95L6.69873 70V30L50 5Z" stroke="url(#logo_grad)" strokeWidth="8" strokeLinejoin="round"/>
-                        <path d="M50 25L71.6506 37.5V62.5L50 75L28.3494 62.5V37.5L50 25Z" fill="url(#logo_grad)"/>
-                        <path d="M50 5V25" stroke="url(#logo_grad)" strokeWidth="8" strokeLinecap="round"/>
-                        <path d="M93.3013 30L71.6506 37.5" stroke="url(#logo_grad)" strokeWidth="8" strokeLinecap="round"/>
-                        <path d="M93.3013 70L71.6506 62.5" stroke="url(#logo_grad)" strokeWidth="8" strokeLinecap="round"/>
-                        <path d="M50 95V75" stroke="url(#logo_grad)" strokeWidth="8" strokeLinecap="round"/>
-                        <path d="M6.69873 70L28.3494 62.5" stroke="url(#logo_grad)" strokeWidth="8" strokeLinecap="round"/>
-                        <path d="M6.69873 30L28.3494 37.5" stroke="url(#logo_grad)" strokeWidth="8" strokeLinecap="round"/>
-                        <defs>
-                            <linearGradient id="logo_grad" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
-                                <stop stopColor="#3498db"/>
-                                <stop offset="1" stopColor="#8e44ad"/>
-                            </linearGradient>
-                        </defs>
-                    </svg>
+                    <img 
+                        src="https://lh3.googleusercontent.com/a/ACg8ocIBrvyfONCNYzKM8RNX-FnfpqV_EjqnN4Oli9YatgicxW9LY3M=s360-c-no" 
+                        alt="Profile Logo"
+                        style={{ width: "40px", height: "40px", borderRadius: "50%", objectFit: "cover", display: "block" }}
+                    />
                 </motion.div>
-                <div className={styles.logoText}>
-                    <span className={styles.logoFirst}>Ritu</span>
-                    <span className={styles.logoSecond}>raj</span>
-                </div>
             </motion.div>
 
             <div className={`${styles.links} ${isOpen ? styles.open : ''}`}>

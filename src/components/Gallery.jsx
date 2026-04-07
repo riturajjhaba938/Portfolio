@@ -20,7 +20,7 @@ const projects = [
         github: 'https://github.com/riturajjhaba938/AI-Study-Planner.git',
         demo: 'https://ai-study-planner-u1qg.onrender.com',
         video: 'https://youtu.be/TULmlNcDTJQ?si=KqGLrqYkStRuiAEe',
-        image: 'https://res.cloudinary.com/dtqsbbz5r/image/upload/v1774689966/Ai_Study_Planner_f8mxmc.png'
+        image: 'https://res.cloudinary.com/dtqsbbz5r/image/upload/f_auto,q_auto/v1774689966/Ai_Study_Planner_f8mxmc.png'
     },
     {
         id: 3,
@@ -29,7 +29,7 @@ const projects = [
         tags: ['React', 'Healthcare Tech', 'UI/UX'],
         github: 'https://github.com/riturajjhaba938/CURA.git',
         demo: 'https://cura-nu-six.vercel.app/',
-        image: 'https://res.cloudinary.com/dtqsbbz5r/image/upload/v1774689966/CURA_bdwhx8.png'
+        image: 'https://res.cloudinary.com/dtqsbbz5r/image/upload/f_auto,q_auto/v1774689966/CURA_bdwhx8.png'
     },
     {
         id: 4,
@@ -38,7 +38,7 @@ const projects = [
         tags: ['LLMs', 'Vector Search', 'Hackathon'],
         github: 'https://github.com/riturajjhaba938/Aether.git',
         demo: 'https://aether-five-tau.vercel.app/',
-        image: 'https://res.cloudinary.com/dtqsbbz5r/image/upload/v1774689965/Aether_uvcjgk.png'
+        image: 'https://res.cloudinary.com/dtqsbbz5r/image/upload/f_auto,q_auto/v1774689965/Aether_uvcjgk.png'
     },
     {
         id: 5,
@@ -48,7 +48,7 @@ const projects = [
         github: 'https://github.com/riturajjhaba938/GapGraph.git',
         demo: 'https://gap-graph.vercel.app/upload',
         video: 'https://youtu.be/HWOBS1By8BM',
-        image: 'https://res.cloudinary.com/dtqsbbz5r/image/upload/v1774689965/Gap_Graph_ycpzjc.png'
+        image: 'https://res.cloudinary.com/dtqsbbz5r/image/upload/f_auto,q_auto/v1774689965/Gap_Graph_ycpzjc.png'
     },
     {
         id: 6,
@@ -57,7 +57,7 @@ const projects = [
         tags: ['Frontend', 'Logic', 'Responsive Design'],
         github: 'https://github.com/riturajjhaba938/Waiters-s-menu.git',
         demo: 'https://waiters-s-menu.vercel.app/',
-        image: 'https://res.cloudinary.com/dtqsbbz5r/image/upload/v1774689965/Waiter_s_Menu_rfg3q7.png'
+        image: 'https://res.cloudinary.com/dtqsbbz5r/image/upload/f_auto,q_auto/v1774689965/Waiter_s_Menu_rfg3q7.png'
     },
     {
         id: 7,
@@ -66,7 +66,7 @@ const projects = [
         tags: ['UI/UX', 'Vite', 'CSS Modules'],
         github: 'https://github.com/riturajjhaba938/WebPage_Templates.git',
         demo: 'https://vedafai.vercel.app/',
-        image: 'https://res.cloudinary.com/dtqsbbz5r/image/upload/v1774689966/Web_template_vedifai_jz7zjc.png'
+        image: 'https://res.cloudinary.com/dtqsbbz5r/image/upload/f_auto,q_auto/v1774689966/Web_template_vedifai_jz7zjc.png'
     }
 ];
 

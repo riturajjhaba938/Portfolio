@@ -1,0 +1,159 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="utf-8">
+<title>Rituraj Jha - CV</title>
+<style>
+  body { font-family: Calibri, Arial, sans-serif; color: #222; margin: 40px; line-height: 1.5; }
+  h1 { font-size: 26pt; color: #1a1a2e; margin-bottom: 2px; }
+  h2 { font-size: 14pt; color: #16213e; border-bottom: 2px solid #3498db; padding-bottom: 4px; margin-top: 22px; }
+  h3 { font-size: 12pt; color: #1a1a2e; margin-bottom: 2px; }
+  .subtitle { font-size: 13pt; color: #3498db; margin-top: 0; }
+  .contact-row { font-size: 10pt; color: #555; margin: 2px 0; }
+  table { border-collapse: collapse; width: 100%; margin: 8px 0; }
+  td, th { padding: 5px 10px; border: 1px solid #ddd; font-size: 10.5pt; }
+  th { background-color: #f0f4f8; text-align: left; }
+  ul { margin: 4px 0 4px 20px; padding: 0; }
+  li { font-size: 10.5pt; margin-bottom: 3px; }
+  .section-detail { font-size: 10.5pt; }
+  .project-title { font-weight: bold; color: #16213e; }
+  .badge { display: inline-block; background: #e8f0fe; color: #1967d2; padding: 1px 8px; border-radius: 3px; font-size: 9pt; margin-right: 4px; }
+  a { color: #3498db; text-decoration: none; }
+  .hackathon-result { font-weight: bold; color: #27ae60; }
+</style>
+</head>
+<body>
+
+<h1>Rituraj Jha</h1>
+<p class="subtitle">Aspiring Full Stack Developer</p>
+<p class="contact-row">
+  📧 contact@riturajjha.dev &nbsp;|&nbsp;
+  📞 +91 8969366490 &nbsp;|&nbsp;
+  🔗 <a href="https://github.com/riturajjhaba938">GitHub</a> &nbsp;|&nbsp;
+  🔗 <a href="https://leetcode.com/u/Riturajjhaba/">LeetCode</a>
+</p>
+
+<h2>Profile Summary</h2>
+<p class="section-detail">
+Architecting pixel-perfect, engaging, and accessible digital experiences. Bridging the gap between reactive UI and robust backend systems. Currently a first-year B.E. Computer Engineering student who has bypassed the traditional learning curve by diving headfirst into the MERN stack and database architecture. Proficient in React for declarative UI state management and MongoDB for schema-flexible data modeling. Focused on building production-grade software with speed and scale. Speed of learning is my greatest competitive advantage.
+</p>
+
+<h2>Education</h2>
+<table>
+  <tr>
+    <th>Institution</th>
+    <th>Duration</th>
+    <th>Degree</th>
+  </tr>
+  <tr>
+    <td>Swaminarayan University</td>
+    <td>2025 – 2029</td>
+    <td>B.E. in Computer Engineering</td>
+  </tr>
+  <tr>
+    <td>C.M. Science College</td>
+    <td>Intermediate</td>
+    <td>Higher Secondary Education</td>
+  </tr>
+</table>
+
+<h2>Technical Skills</h2>
+<table>
+  <tr>
+    <th>Category</th>
+    <th>Skills</th>
+  </tr>
+  <tr>
+    <td><b>Languages</b></td>
+    <td>C, C++, JavaScript, HTML5, CSS3</td>
+  </tr>
+  <tr>
+    <td><b>Frontend</b></td>
+    <td>React.js, Vite, Recharts</td>
+  </tr>
+  <tr>
+    <td><b>Backend</b></td>
+    <td>Node.js, Express.js, MongoDB</td>
+  </tr>
+  <tr>
+    <td><b>Tools</b></td>
+    <td>Git, GitHub, Postman, Figma, CI/CD</td>
+  </tr>
+</table>
+
+<h2>Projects</h2>
+
+<h3>1. Aadhaar Plus</h3>
+<p class="section-detail">
+Digital Identity Monitoring system with real-time migration analytics.<br>
+<b>Tech:</b> <span class="badge">MERN</span><span class="badge">Recharts</span><span class="badge">MongoDB</span><br>
+<b>Links:</b> <a href="https://github.com/riturajjhaba938/aadhaar-plus.git">GitHub</a> | <a href="https://udai-n6dk.onrender.com/">Live Demo</a> | <a href="https://youtu.be/DEk041Yd_lU">Video</a>
+</p>
+
+<h3>2. AI Study Planner</h3>
+<p class="section-detail">
+Intelligent productivity tool using Generative AI for automated scheduling.<br>
+<b>Tech:</b> <span class="badge">React</span><span class="badge">Node.js</span><span class="badge">AI Integration</span><br>
+<b>Links:</b> <a href="https://github.com/riturajjhaba938/AI-Study-Planner.git">GitHub</a> | <a href="https://ai-study-planner-u1qg.onrender.com">Live Demo</a> | <a href="https://youtu.be/TULmlNcDTJQ">Video</a>
+</p>
+
+<h3>3. CURA</h3>
+<p class="section-detail">
+Clinical Intelligence Platform for personal healthcare management.<br>
+<b>Tech:</b> <span class="badge">React</span><span class="badge">Healthcare Tech</span><span class="badge">UI/UX</span><br>
+<b>Links:</b> <a href="https://github.com/riturajjhaba938/CURA.git">GitHub</a> | <a href="https://cura-nu-six.vercel.app/">Live Demo</a>
+</p>
+
+<h3>4. Aether</h3>
+<p class="section-detail">
+AI-powered 'Second Brain' for synthesizing lectures and notes (Hackathon Winner).<br>
+<b>Tech:</b> <span class="badge">LLMs</span><span class="badge">Vector Search</span><br>
+<b>Links:</b> <a href="https://github.com/riturajjhaba938/Aether.git">GitHub</a> | <a href="https://aether-five-tau.vercel.app/">Live Demo</a>
+</p>
+
+<h3>5. Gap Graph</h3>
+<p class="section-detail">
+AI tool for career trajectory mapping and skill gap analysis.<br>
+<b>Tech:</b> <span class="badge">Python</span><span class="badge">NLP</span><span class="badge">React</span><br>
+<b>Links:</b> <a href="https://github.com/riturajjhaba938/GapGraph.git">GitHub</a> | <a href="https://gap-graph.vercel.app/upload">Live Demo</a> | <a href="https://youtu.be/HWOBS1By8BM">Video</a>
+</p>
+
+<h3>6. Waiter's Menu</h3>
+<p class="section-detail">
+Interactive digital menu system for optimized restaurant service.<br>
+<b>Tech:</b> <span class="badge">Frontend</span><span class="badge">Responsive Design</span><br>
+<b>Links:</b> <a href="https://github.com/riturajjhaba938/Waiters-s-menu.git">GitHub</a> | <a href="https://waiters-s-menu.vercel.app/">Live Demo</a>
+</p>
+
+<h3>7. Web-Template</h3>
+<p class="section-detail">
+Professional landing page architecture for modern SAAS products.<br>
+<b>Tech:</b> <span class="badge">UI/UX</span><span class="badge">Vite</span><span class="badge">CSS Modules</span><br>
+<b>Links:</b> <a href="https://github.com/riturajjhaba938/WebPage_Templates.git">GitHub</a> | <a href="https://vedafai.vercel.app/">Live Demo</a>
+</p>
+
+<h2>Hackathons &amp; Achievements</h2>
+
+<h3>1. Aether — Dev Heat (IIIT Surat)</h3>
+<p class="section-detail">
+<span class="hackathon-result">🏆 Finalist — National Level Hackathon</span><br>
+<b>Org:</b> IIIT Surat | Collab: GDG<br>
+<b>Role:</b> Full Stack Developer (Team Lead) | <b>Team Size:</b> 3
+</p>
+
+<h3>2. AI Study Planner — UnsaidTalks</h3>
+<p class="section-detail">
+<span class="hackathon-result">🥉 2nd Runner-up</span> — AI-driven academic automation<br>
+<b>Role:</b> Full Stack Developer | <b>Team Size:</b> Individual
+</p>
+
+<h3>3. CURA — HackCrux v2 (LNMIIT)</h3>
+<p class="section-detail">
+<b>Result:</b> Participation — Clinical Intelligence Platform integration<br>
+<b>Org:</b> LNMIIT Jaipur | Collab: TensorFlow User Group &amp; GDG<br>
+<b>Role:</b> Backend &amp; AI Integration (Team Lead) | <b>Team Size:</b> 4
+</p>
+
+</body>
+</html>

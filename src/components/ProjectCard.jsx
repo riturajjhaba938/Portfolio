@@ -58,7 +58,8 @@ export const ProjectCard = ({ project, index }) => {
                         <img 
                             src={project.image} 
                             alt={project.title} 
-                            className={styles.projectImage} 
+                            className={styles.projectImage}
+                            loading="lazy"
                         />
                     </div>
                     <h3 className={styles.projectTitle}>{project.title}</h3>

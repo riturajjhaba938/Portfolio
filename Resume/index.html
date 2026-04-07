@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rituraj Jha - Resume</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1e2937;
+      /* Deep professional slate */
+      --accent: #0ea5e9;
+      /* Clean sky blue accent */
+      --light-bg: #f8fafc;
+      --text-main: #1e2937;
+      --text-light: #475569;
+      --white: #ffffff;
+      --border: #e2e8f0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body,
+    html {
+      font-family: 'Inter', sans-serif;
+      background-color: #e2e8f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: var(--text-main);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      background: var(--white);
+      margin: 20px auto;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+      display: flex;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    /* LEFT COLUMN - No Photo */
+    .left-column {
+      width: 36%;
+      background-color: var(--light-bg);
+      border-left: 16px solid var(--primary);
+      padding: 1.5rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24pt;
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      margin-bottom: 2px;
+    }
+
+    .subtitle {
+      font-size: 9.5pt;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 0.6rem;
+    }
+
+    .left-column .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 3px solid var(--accent);
+      letter-spacing: 0.5px;
+    }
+
+    .profile-summary {
+      font-size: 9pt;
+      line-height: 1.45;
+      color: var(--text-light);
+    }
+
+    /* Contact & Skills */
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      font-size: 8.5pt;
+    }
+
+    .contact-item {
+      margin-bottom: 0.4rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-label {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 2px;
+    }
+
+    .contact-value {
+      color: var(--text-light);
+    }
+
+    .contact-value a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .contact-value a:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    .skills-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .skill-category {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 8.5pt;
+      margin-bottom: 3px;
+      display: block;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .badge {
+      background: #fff;
+      color: var(--primary);
+      padding: 3px 8px;
+      border-radius: 9999px;
+      font-size: 7.2pt;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    /* RIGHT COLUMN */
+    .right-column {
+      width: 64%;
+      padding: 1.5rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .right-column .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11.5pt;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      background-color: #f1f5f9;
+      padding: 0.4rem 0.8rem;
+      margin-bottom: 0.6rem;
+      border-left: 6px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      letter-spacing: 0.8px;
+    }
+
+    .entry {
+      margin-bottom: 0.7rem;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+
+    .entry-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .entry-subtitle {
+      font-size: 9.2pt;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .entry-date {
+      font-size: 8.5pt;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .entry-desc {
+      font-size: 9pt;
+      color: var(--text-light);
+      line-height: 1.45;
+    }
+
+    ul.custom-bullet {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 4px 0 0 0;
+    }
+
+    ul.custom-bullet li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 4px;
+      font-size: 9pt;
+      color: var(--text-light);
+      line-height: 1.4;
+    }
+
+    ul.custom-bullet li::before {
+      content: "•";
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 14pt;
+      position: absolute;
+      left: 0;
+      top: -2px;
+    }
+
+    .project-badges {
+      margin-top: 4px;
+    }
+
+    .project-badges .badge {
+      background: #e0f2fe;
+      border-color: #bae6fd;
+      color: #0369a1;
+      font-size: 7.5pt;
+    }
+
+    @media print {
+
+      body,
+      html {
+        background: transparent;
+        margin: 0;
+      }
+
+      .page {
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page">
+
+    <!-- LEFT COLUMN -->
+    <div class="left-column">
+
+      <div>
+        <h1 class="name">RITURAJ JHA</h1>
+        <h2 class="subtitle">Aspiring Full Stack Developer</h2>
+      </div>
+
+      <div>
+        <h3 class="section-title">Personal Profile</h3>
+        <p class="profile-summary">
+          Driven and adaptable Full Stack Developer specializing in the MERN stack. Currently pursuing a B.E. in
+          Computer Engineering, I possess a strong aptitude for rapid technical execution. I excel at bridging the gap
+          between pixel-perfect, reactive front-end interfaces and robust, scalable backend architectures to deliver
+          high-performance software solutions. <strong>Highly proficient in leveraging modern AI tools
+            efficiently</strong> to accelerate development, enhance code quality, boost productivity, and solve complex
+          problems faster. Speed of learning is my greatest competitive advantage.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="section-title">Contact Info</h3>
+        <ul class="contact-list">
+          <li class="contact-item">
+            <span class="contact-label">Email</span>
+            <span class="contact-value"><a href="mailto:riturajjha938@gmail.com">riturajjha938@gmail.com</a></span>
+          </li>
+          <li class="contact-item">
+            <span class="contact-label">Phone</span>
+            <span class="contact-value">+91 89693 66490</span>
+          </li>
+          <li class="contact-item">
+            <span class="contact-label">GitHub</span>
+            <span class="contact-value"><a href="https://github.com/riturajjhaba938"
+                target="_blank">github.com/riturajjhaba938</a></span>
+          </li>
+          <li class="contact-item">
+            <span class="contact-label">LeetCode</span>
+            <span class="contact-value"><a href="https://leetcode.com/u/Riturajjhaba/"
+                target="_blank">leetcode.com/u/Riturajjhaba/</a></span>
+          </li>
+          <li class="contact-item">
+            <span class="contact-label">Portfolio</span>
+            <span class="contact-value"><a href="https://portfolio-six-tan-thzy1lhz41.vercel.app"
+                target="_blank">portfolio-six-tan-thzy1lhz41.vercel.app</a></span>
+          </li>
+          <li class="contact-item">
+            <span class="contact-label">Location</span>
+            <span class="contact-value">Kalol, Gujarat, India • 382721</span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="section-title">Areas of Expertise</h3>
+        <ul class="skills-list">
+          <li>
+            <span class="skill-category">Languages</span>
+            <div class="badges">
+              <span class="badge">C</span>
+              <span class="badge">C++</span>
+              <span class="badge">JavaScript</span>
+              <span class="badge">HTML5</span>
+              <span class="badge">CSS3</span>
+            </div>
+          </li>
+          <li>
+            <span class="skill-category">Frontend</span>
+            <div class="badges">
+              <span class="badge">React.js</span>
+              <span class="badge">Vite</span>
+              <span class="badge">Recharts</span>
+            </div>
+          </li>
+          <li>
+            <span class="skill-category">Backend</span>
+            <div class="badges">
+              <span class="badge">Node.js</span>
+              <span class="badge">Express.js</span>
+              <span class="badge">MongoDB</span>
+            </div>
+          </li>
+          <li>
+            <span class="skill-category">Tools & Others</span>
+            <div class="badges">
+              <span class="badge">Git</span>
+              <span class="badge">GitHub</span>
+              <span class="badge">Postman</span>
+              <span class="badge">Figma</span>
+              <span class="badge">CI/CD</span>
+            </div>
+          </li>
+          <!-- NEW AI SECTION ADDED HERE -->
+          <li>
+            <span class="skill-category">AI Tools &amp; Productivity</span>
+            <div class="badges">
+              <span class="badge">ChatGPT</span>
+              <span class="badge">Claude</span>
+              <span class="badge">Grok</span>
+              <span class="badge">Cursor AI</span>
+              <span class="badge">Prompt Engineering</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="right-column">
+
+      <div>
+        <h3 class="section-title">Academic History</h3>
+        <div class="entry">
+          <div class="entry-header">
+            <h4 class="entry-title">Swaminarayan University</h4>
+            <span class="entry-date">2025 – 2029</span>
+          </div>
+          <p class="entry-subtitle">B.E. in Computer Engineering</p>
+        </div>
+        <div class="entry">
+          <div class="entry-header">
+            <h4 class="entry-title">C.M. Science College</h4>
+          </div>
+          <p class="entry-subtitle">Higher Secondary Education</p>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="section-title">Featured Projects</h3>
+
+        <div class="entry" style="margin-bottom: 0.7rem;">
+          <div class="entry-header" style="align-items: center; margin-bottom: 2px;">
+            <h4 class="entry-title">Aadhaar Plus</h4>
+            <div class="project-badges badges" style="margin-top: 0;">
+              <span class="badge">MERN</span><span class="badge">Recharts</span><span class="badge">MongoDB</span>
+            </div>
+          </div>
+          <p class="entry-desc" style="margin-top: 2px;">Engineered a full-stack digital identity monitoring ecosystem
+            featuring real-time migration analytics.</p>
+        </div>
+
+        <div class="entry" style="margin-bottom: 0.7rem;">
+          <div class="entry-header" style="align-items: center; margin-bottom: 2px;">
+            <h4 class="entry-title">AI Study Planner</h4>
+            <div class="project-badges badges" style="margin-top: 0;">
+              <span class="badge">React</span><span class="badge">Node.js</span><span class="badge">AI
+                Integration</span>
+            </div>
+          </div>
+          <p class="entry-desc" style="margin-top: 2px;">Built an intelligent productivity tool leveraging Generative AI
+            to automate study schedules efficiently.</p>
+        </div>
+
+        <div class="entry" style="margin-bottom: 0.7rem;">
+          <div class="entry-header" style="align-items: center; margin-bottom: 2px;">
+            <h4 class="entry-title">Web-Template</h4>
+            <div class="project-badges badges" style="margin-top: 0;">
+              <span class="badge">UI/UX</span><span class="badge">Vite</span><span class="badge">CSS Modules</span>
+            </div>
+          </div>
+          <p class="entry-desc" style="margin-top: 2px;">Developed a professional, high-performance landing page
+            architecture for modern SAAS products.</p>
+        </div>
+
+        <div class="entry" style="margin-bottom: 0.7rem;">
+          <div class="entry-header" style="align-items: center; margin-bottom: 2px;">
+            <h4 class="entry-title">Aether</h4>
+            <div class="project-badges badges" style="margin-top: 0;">
+              <span class="badge">LLMs</span><span class="badge">Vector Search</span>
+            </div>
+          </div>
+          <p class="entry-desc" style="margin-top: 2px;">Developed an AI-powered 'Second Brain' enabling students to
+            synthesize lectures utilizing advanced LLMs.</p>
+        </div>
+
+        <div class="entry" style="margin-bottom: 0.7rem;">
+          <div class="entry-header" style="align-items: center; margin-bottom: 2px;">
+            <h4 class="entry-title">CURA</h4>
+            <div class="project-badges badges" style="margin-top: 0;">
+              <span class="badge">React</span><span class="badge">UI/UX</span><span class="badge">Healthcare</span>
+            </div>
+          </div>
+          <p class="entry-desc" style="margin-top: 2px;">Designed an intuitive Clinical Intelligence Platform to
+            streamline personal healthcare management metrics.</p>
+        </div>
+
+        <div class="entry" style="margin-bottom: 0.7rem;">
+          <div class="entry-header" style="align-items: center; margin-bottom: 2px;">
+            <h4 class="entry-title">Gap Graph</h4>
+            <div class="project-badges badges" style="margin-top: 0;">
+              <span class="badge">Python</span><span class="badge">NLP</span><span class="badge">React</span>
+            </div>
+          </div>
+          <p class="entry-desc" style="margin-top: 2px;">Built an AI tool integrating an interactive React UI with
+            Python NLP for career trajectory mapping.</p>
+        </div>
+
+        <div class="entry" style="margin-bottom: 0.7rem;">
+          <div class="entry-header" style="align-items: center; margin-bottom: 2px;">
+            <h4 class="entry-title">Waiter's Menu</h4>
+            <div class="project-badges badges" style="margin-top: 0;">
+              <span class="badge">Frontend</span><span class="badge">Logic</span>
+            </div>
+          </div>
+          <p class="entry-desc" style="margin-top: 2px;">Created an interactive digital menu system showcasing
+            responsive design and optimized logic parsing.</p>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="section-title">Hackathons & Achievements</h3>
+        <ul class="custom-bullet">
+          <li><strong>Aether</strong> – Finalist, Dev Heat National Level Hackathon (IIIT Surat), Team Lead</li>
+          <li><strong>AI Study Planner</strong> – 2nd Runner-up, UnsaidTalks Hackathon</li>
+          <li><strong>CURA</strong> – Participated in HackCrux v2 (LNMIIT Jaipur), Team Lead</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>

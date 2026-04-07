@@ -46,9 +46,10 @@ export const Hero = () => {
                         transition={{ duration: 0.8, ease: "backOut" }}
                     >
                         <img
-                            src="https://res.cloudinary.com/dtqsbbz5r/image/upload/v1774858266/sample1_loomjv.jpg"
+                            src="https://res.cloudinary.com/dtqsbbz5r/image/upload/f_auto,q_auto/v1774858266/sample1_loomjv.jpg"
                             alt="Rituraj Jha"
                             className={styles.profileImage}
+                            fetchPriority="high"
                         />
                     </motion.div>
 
