@@ -17,12 +17,12 @@ const faqData = [
   {
     id: 3,
     question: "How can I contact you?",
-    answer: "You can reach me through the Contact form directly at the bottom of the page, or connect with me via LinkedIn. I'd love to chat!"
+    answer: "You can reach me via Email: riturajjha.100@gmail.com, or Phone/WhatsApp! You can also use the Contact form at the bottom of the page or connect with me via LinkedIn. I'd love to chat!"
   },
   {
     id: 4,
     question: "Tell me about your best project.",
-    answer: "One of my favorite projects is 'AI Study Planner', which won 2nd Runner-up at UnsaidTalks! It intelligently automates academic planning using AI integrations."
+    answer: "Some of my favorite projects include CURA (a comprehensive healthcare platform), Gap Graph, AI Study Planner (which won 2nd Runner-up at UnsaidTalks!), and my customizable Web Templates. Each project involves solving real-world problems with advanced full-stack technologies!"
   }
 ];
 

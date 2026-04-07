@@ -8,6 +8,7 @@ import { Gallery } from './components/Gallery';
 import { Certification } from './components/Certification';
 import { TechnicalSkills } from './components/TechnicalSkills';
 import { Education } from './components/Education';
+import { BeyondCodes } from './components/BeyondCodes';
 import { Contact } from './components/Contact';
 import CustomCursor from './components/CustomCursor';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
@@ -46,6 +47,9 @@ function App() {
           <Certification />
         </div>
         <div id="projects"><Gallery /></div>
+        <div id="beyond-codes">
+            <BeyondCodes />
+        </div>
         <div id="education">
           <Education />
         </div>
