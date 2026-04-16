@@ -27,7 +27,7 @@ export const Contact = () => {
 
                     {/* Resume Link */}
                     <Magnetic>
-                        <a href="https://rituraj-jha-resume.tiiny.site" target="_blank" rel="noopener noreferrer" className={`${styles.card} glass`}>
+                        <a href="https://drive.google.com/file/d/1xL8EljuTUblfsk3YRJs54NhnNq0tg_-p/view?usp=sharing" target="_blank" rel="noopener noreferrer" className={`${styles.card} glass`}>
                             <FaFileAlt className={styles.icon} />
                             <span className={styles.text}>Resume</span>
                         </a>
