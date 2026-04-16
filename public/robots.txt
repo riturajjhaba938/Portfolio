@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://riturajjha.vercel.app/sitemap.xml

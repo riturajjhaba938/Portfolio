@@ -1,9 +1,10 @@
 import { ProjectCard } from './ProjectCard';
 import styles from './Gallery.module.css';
 
-const projects = [
+export const projects = [
     {
         id: 1,
+        slug: 'aadhaar-plus',
         title: 'Aadhaar Plus',
         description: 'Digital Identity Monitoring system with real-time migration analytics.',
         tags: ['MERN', 'Recharts', 'MongoDB'],
@@ -14,6 +15,7 @@ const projects = [
     },
     {
         id: 2,
+        slug: 'ai-study-planner',
         title: 'AI Study Planner',
         description: 'Intelligent productivity tool using Generative AI for automated scheduling.',
         tags: ['React', 'Node.js', 'AI Integration'],
@@ -24,6 +26,7 @@ const projects = [
     },
     {
         id: 3,
+        slug: 'cura',
         title: 'CURA',
         description: 'Clinical Intelligence Platform for personal healthcare management.',
         tags: ['React', 'Healthcare Tech', 'UI/UX'],
@@ -33,6 +36,7 @@ const projects = [
     },
     {
         id: 4,
+        slug: 'aether',
         title: 'Aether',
         description: "AI-powered 'Second Brain' for synthesizing lectures and notes (Hackathon Winner).",
         tags: ['LLMs', 'Vector Search', 'Hackathon'],
@@ -42,6 +46,7 @@ const projects = [
     },
     {
         id: 5,
+        slug: 'gap-graph',
         title: 'Gap Graph',
         description: 'AI tool for career trajectory mapping and skill gap analysis.',
         tags: ['Python', 'NLP', 'React'],
@@ -52,6 +57,7 @@ const projects = [
     },
     {
         id: 6,
+        slug: 'waiters-menu',
         title: "Waiter's Menu",
         description: 'Interactive digital menu system for optimized restaurant service.',
         tags: ['Frontend', 'Logic', 'Responsive Design'],
@@ -61,6 +67,7 @@ const projects = [
     },
     {
         id: 7,
+        slug: 'web-template',
         title: 'Web-Template',
         description: 'Professional landing page architecture for modern SAAS products.',
         tags: ['UI/UX', 'Vite', 'CSS Modules'],

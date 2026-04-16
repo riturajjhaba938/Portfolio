@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaYoutube } from 'react-icons/fa';
 import styles from './Certification.module.css';
@@ -51,6 +51,16 @@ const hackathons = [
 export const Certification = () => {
     const ref = useRef(null);
     const [selectedHackathon, setSelectedHackathon] = useState(null);
+
+    // Lock body scrolling when modal is open
+    useEffect(() => {
+        if (selectedHackathon) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => { document.body.style.overflow = 'unset'; }
+    }, [selectedHackathon]);
 
     return (
         <section className={styles.section} ref={ref}>

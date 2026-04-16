@@ -43,7 +43,7 @@ export const Hero = () => {
                         className={styles.profileContainer}
                         initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8, ease: "backOut" }}
+                        transition={{ duration: 0.8, delay: 2.5, ease: "backOut" }}
                     >
                         <img
                             src="https://res.cloudinary.com/dtqsbbz5r/image/upload/f_auto,q_auto/v1774858266/sample1_loomjv.jpg"
@@ -62,7 +62,7 @@ export const Hero = () => {
                                 animate={{ opacity: 1, y: 0, rotateX: 0 }}
                                 transition={{
                                     duration: 1,
-                                    delay: index * 0.1,
+                                    delay: 2.5 + index * 0.1,
                                     type: "spring",
                                     stiffness: 50
                                 }}
@@ -81,7 +81,7 @@ export const Hero = () => {
                         className={styles.subtitleWrapper}
                         initial={{ opacity: 0, width: 0 }}
                         animate={{ opacity: 1, width: "100%" }}
-                        transition={{ delay: 1.5, duration: 1, ease: "easeInOut" }}
+                        transition={{ delay: 2.5 + (title.length * 0.1), duration: 1, ease: "easeInOut" }}
                     >
                         <p className={styles.subtitle}>{subtitle}</p>
                     </motion.div>

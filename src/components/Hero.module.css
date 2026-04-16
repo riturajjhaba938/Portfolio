@@ -29,6 +29,13 @@
     gap: 4rem;
 }
 
+.leftCol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
 @media (min-width: 1024px) {
     .heroLayout {
         flex-direction: row;
@@ -37,10 +44,6 @@
     
     .leftCol {
         flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
     }
 
     .rightCol {

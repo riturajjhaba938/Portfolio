@@ -1,6 +1,7 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Magnetic } from './Magnetic';
 import { FaGithub, FaExternalLinkAlt, FaYoutube } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import styles from './Gallery.module.css';
 
 export const ProjectCard = ({ project, index }) => {
@@ -55,14 +56,18 @@ export const ProjectCard = ({ project, index }) => {
             >
                 <div style={{ transform: "translateZ(50px)" }}>
                     <div className={styles.imageWrapper}>
-                        <img 
-                            src={project.image} 
-                            alt={project.title} 
-                            className={styles.projectImage}
-                            loading="lazy"
-                        />
+                        <Link to={`/projects/${project.slug}`}>
+                            <img 
+                                src={project.image} 
+                                alt={project.title} 
+                                className={styles.projectImage}
+                                loading="lazy"
+                            />
+                        </Link>
                     </div>
-                    <h3 className={styles.projectTitle}>{project.title}</h3>
+                    <Link to={`/projects/${project.slug}`} style={{ textDecoration: 'none' }}>
+                        <h3 className={styles.projectTitle} style={{ cursor: 'pointer' }}>{project.title}</h3>
+                    </Link>
                     <p className={styles.projectDesc}>{project.description}</p>
 
                     <div className={styles.tags}>

@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate, useLocation } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 export const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -23,12 +26,19 @@ export const Navbar = () => {
         { name: 'Contact', target: 'contact' }
     ];
 
-    const scrollToSection = (e, targetId) => {
+    const handleNavClick = (e, targetId) => {
         e.preventDefault();
-        const element = document.getElementById(targetId);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-            setIsOpen(false);
+        setIsOpen(false);
+        
+        if (location.pathname === '/') {
+            // If already on homepage, just smooth scroll
+            const element = document.getElementById(targetId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        } else {
+            // If on a different route, navigate back to home with the hash
+            navigate(`/#${targetId}`);
         }
     };
 
@@ -41,10 +51,11 @@ export const Navbar = () => {
         >
             <motion.div 
                 className={styles.logoContainer} 
-                onClick={(e) => scrollToSection(e, 'home')}
+                onClick={(e) => handleNavClick(e, 'home')}
                 whileHover="hover"
                 initial="initial"
                 animate="animate"
+                style={{ cursor: 'pointer' }}
             >
                 <motion.div 
                     className={styles.logoIcon}
@@ -65,9 +76,9 @@ export const Navbar = () => {
                 {navLinks.map((link) => (
                     <a
                         key={link.name}
-                        href={`#${link.target}`}
+                        href={`/#${link.target}`}
                         className={styles.link}
-                        onClick={(e) => scrollToSection(e, link.target)}
+                        onClick={(e) => handleNavClick(e, link.target)}
                     >
                         {link.name}
                     </a>
